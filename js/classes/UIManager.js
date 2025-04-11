@@ -11,11 +11,20 @@
  * 4. Manages modal dialogs and forms
  */
 
+import Team from './Team.js';
+import Player from './Player.js';
+
 export default class UIManager {
     /**
      * Creates a new UIManager instance
      * 
      * @param {League} league - The league instance to manage UI for
+     * 
+     * What @param does:
+     * - It's a special comment that tells other developers what information a function needs
+     * - {League} tells us what type of data we expect (in this case, a League object)
+     * - 'league' is the name of the variable we'll use inside the function
+     * - The text after the dash explains what this parameter is for
      */
     constructor(league) {
         this.league = league;
@@ -24,6 +33,11 @@ export default class UIManager {
 
     /**
      * Sets up the initial user interface
+     * 
+     * What this method does:
+     * - Creates the basic structure of the webpage
+     * - Adds all the forms and displays
+     * - Makes everything visible to the user
      */
     initializeUI() {
         const app = document.getElementById('app');
@@ -33,7 +47,13 @@ export default class UIManager {
 
     /**
      * Creates the main container for the UI
+     * 
      * @returns {HTMLElement} - The main container element
+     * 
+     * What @returns does:
+     * - Tells us what the function gives back when it's done
+     * - {HTMLElement} means it returns an HTML element (like a div, button, etc.)
+     * - The text after the dash explains what this element is used for
      */
     createMainContainer() {
         const container = document.createElement('div');
@@ -49,7 +69,12 @@ export default class UIManager {
 
     /**
      * Creates the title element
+     * 
      * @returns {HTMLElement} - The title element
+     * 
+     * What this method does:
+     * - Creates a big heading at the top of the page
+     * - Returns an HTML element that can be added to the page
      */
     createTitle() {
         const title = document.createElement('h1');
@@ -59,7 +84,13 @@ export default class UIManager {
 
     /**
      * Creates the team form
+     * 
      * @returns {HTMLElement} - The team form element
+     * 
+     * What this method does:
+     * - Creates a form where users can add new teams
+     * - Includes an input field and a button
+     * - Returns the complete form as an HTML element
      */
     createTeamForm() {
         const formContainer = document.createElement('div');
@@ -86,7 +117,13 @@ export default class UIManager {
 
     /**
      * Creates the player form
+     * 
      * @returns {HTMLElement} - The player form element
+     * 
+     * What this method does:
+     * - Creates a form where users can add new players
+     * - Includes fields for name, position, and stats
+     * - Returns the complete form as an HTML element
      */
     createPlayerForm() {
         const formContainer = document.createElement('div');
@@ -113,7 +150,12 @@ export default class UIManager {
 
     /**
      * Creates the teams container
+     * 
      * @returns {HTMLElement} - The teams container element
+     * 
+     * What this method does:
+     * - Creates a container where all teams will be displayed
+     * - Returns an empty div that will hold team cards
      */
     createTeamsContainer() {
         const container = document.createElement('div');
@@ -123,7 +165,12 @@ export default class UIManager {
 
     /**
      * Creates the team selection dropdown
+     * 
      * @returns {HTMLElement} - The team select element
+     * 
+     * What this method does:
+     * - Creates a dropdown menu to select teams
+     * - Returns a select element that will be filled with team options
      */
     createTeamSelect() {
         const select = document.createElement('select');
@@ -133,7 +180,12 @@ export default class UIManager {
 
     /**
      * Creates the name input fields
+     * 
      * @returns {HTMLElement} - The name inputs container
+     * 
+     * What this method does:
+     * - Creates input fields for first and last name
+     * - Returns a container with both input fields
      */
     createNameInputs() {
         const container = document.createElement('div');
@@ -159,7 +211,13 @@ export default class UIManager {
 
     /**
      * Creates the position selection dropdown
+     * 
      * @returns {HTMLElement} - The position select element
+     * 
+     * What this method does:
+     * - Creates a dropdown menu for player positions
+     * - Adds options for Forward, Midfielder, Defender, and Goalkeeper
+     * - Returns the complete select element
      */
     createPositionSelect() {
         const select = document.createElement('select');
@@ -178,7 +236,13 @@ export default class UIManager {
 
     /**
      * Creates the attribute input fields
+     * 
      * @returns {HTMLElement} - The attribute inputs container
+     * 
+     * What this method does:
+     * - Creates number input fields for player attributes
+     * - Sets up fields for pace, shooting, and passing
+     * - Returns a container with all attribute inputs
      */
     createAttributeInputs() {
         const container = document.createElement('div');
@@ -200,7 +264,13 @@ export default class UIManager {
 
     /**
      * Creates the add player button
+     * 
      * @returns {HTMLElement} - The add player button
+     * 
+     * What this method does:
+     * - Creates a button to add new players
+     * - Sets up the click handler
+     * - Returns the button element
      */
     createAddPlayerButton() {
         const button = document.createElement('button');
@@ -211,6 +281,11 @@ export default class UIManager {
 
     /**
      * Handles adding a new team
+     * 
+     * What this method does:
+     * - Gets the team name from the input field
+     * - Creates a new team and adds it to the league
+     * - Updates the display to show the new team
      */
     handleAddTeam() {
         const teamNameInput = document.getElementById('team-name');
@@ -225,6 +300,11 @@ export default class UIManager {
 
     /**
      * Handles adding a new player
+     * 
+     * What this method does:
+     * - Gets all player information from the form
+     * - Creates a new player and adds it to the selected team
+     * - Updates the display to show the new player
      */
     handleAddPlayer() {
         const teamSelect = document.getElementById('team-select');
@@ -256,6 +336,11 @@ export default class UIManager {
 
     /**
      * Updates the team selection dropdown
+     * 
+     * What this method does:
+     * - Clears the current dropdown options
+     * - Adds all teams from the league as new options
+     * - Makes sure the dropdown shows all available teams
      */
     updateTeamSelect() {
         const teamSelect = document.getElementById('team-select');
@@ -271,6 +356,11 @@ export default class UIManager {
 
     /**
      * Updates the entire display
+     * 
+     * What this method does:
+     * - Updates the team selection dropdown
+     * - Refreshes the display of all teams and players
+     * - Makes sure everything is up to date
      */
     updateDisplay() {
         this.updateTeamSelect();
@@ -279,6 +369,11 @@ export default class UIManager {
 
     /**
      * Displays all teams and their players
+     * 
+     * What this method does:
+     * - Clears the current display
+     * - Creates cards for each team
+     * - Shows all teams and their players
      */
     displayTeams() {
         const container = document.getElementById('teams-container');
@@ -292,8 +387,14 @@ export default class UIManager {
 
     /**
      * Creates a team card element
+     * 
      * @param {Team} team - The team to create a card for
      * @returns {HTMLElement} - The team card element
+     * 
+     * What this method does:
+     * - Creates a card to display a team's information
+     * - Shows the team name and a list of players
+     * - Returns the complete team card
      */
     createTeamCard(team) {
         const teamCard = document.createElement('div');
@@ -310,8 +411,14 @@ export default class UIManager {
 
     /**
      * Creates a team header element
+     * 
      * @param {Team} team - The team to create a header for
      * @returns {HTMLElement} - The team header element
+     * 
+     * What this method does:
+     * - Creates the header part of a team card
+     * - Shows the team name and a remove button
+     * - Returns the complete header
      */
     createTeamHeader(team) {
         const header = document.createElement('div');
@@ -341,8 +448,14 @@ export default class UIManager {
 
     /**
      * Creates a player list element
+     * 
      * @param {Team} team - The team to create a player list for
      * @returns {HTMLElement} - The player list element
+     * 
+     * What this method does:
+     * - Creates a list of all players in a team
+     * - Shows each player's information and controls
+     * - Returns the complete player list
      */
     createPlayerList(team) {
         const list = document.createElement('div');
@@ -358,9 +471,16 @@ export default class UIManager {
 
     /**
      * Creates a player element
+     * 
      * @param {Team} team - The team the player belongs to
      * @param {Player} player - The player to create an element for
      * @returns {HTMLElement} - The player element
+     * 
+     * What this method does:
+     * - Creates a display element for a single player
+     * - Shows the player's name, position, and stats
+     * - Adds edit and remove buttons
+     * - Returns the complete player element
      */
     createPlayerElement(team, player) {
         const element = document.createElement('div');
@@ -396,8 +516,14 @@ export default class UIManager {
 
     /**
      * Handles editing a player's stats
+     * 
      * @param {Team} team - The team the player belongs to
      * @param {Player} player - The player to edit
+     * 
+     * What this method does:
+     * - Shows a popup form to edit player stats
+     * - Updates the player's stats when saved
+     * - Refreshes the display to show changes
      */
     handleEditPlayer(team, player) {
         const modal = document.createElement('div');
@@ -428,8 +554,15 @@ export default class UIManager {
 
     /**
      * Creates the edit form for a player
+     * 
      * @param {Player} player - The player to create the form for
      * @returns {HTMLElement} - The edit form element
+     * 
+     * What this method does:
+     * - Creates a form to edit player stats
+     * - Shows current stats in input fields
+     * - Adds save and cancel buttons
+     * - Returns the complete edit form
      */
     createEditForm(player) {
         const form = document.createElement('div');

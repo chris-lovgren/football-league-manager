@@ -92,6 +92,7 @@ initialTeams.forEach(team => {
 // When the page loads, create the UI manager and display everything
 window.onload = function() {
     const uiManager = new UIManager(premierLeague);
+    uiManager.updateDisplay(); // Make sure to update the display after initialization
 };
 
 
